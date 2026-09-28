@@ -87,12 +87,16 @@
 	// ---------- Tracking de CTAs (eventos no dataLayer para o GTM) ----------
 	document.querySelectorAll('[data-cta]').forEach(function (el) {
 		el.addEventListener('click', function () {
+			const href = el.getAttribute('href') || '';
 			window.dataLayer.push({
-				event: el.getAttribute('href').indexOf('tel:') === 0 ? 'phone_click' : 'whatsapp_click',
+				event: href.indexOf('tel:') === 0 ? 'phone_click' : (href.charAt(0) === '#' ? 'nav_click' : 'whatsapp_click'),
 				cta_id: el.dataset.cta
 			});
 		});
 	});
+
+	// Ano automático no rodapé
+	document.getElementById('year').textContent = new Date().getFullYear();
 
 	// ---------- Origem do tráfego (UTM/gclid) guardada na 1ª página vista, para ir junto com o lead ----------
 	const ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'gclid'];
@@ -136,24 +140,32 @@
 			const p = form.data.value.split('-');
 			dataBr = p[2] + '/' + p[1] + '/' + p[0];
 		}
-		const mensagem = form.mensagem.value.trim();
+		const pacote = form.pacote.value;
+		const bairro = form.bairro.value.trim();
+		const criancas = form.criancas.value;
 
 		sendToSheet(Object.assign({
 			nome: nome,
 			telefone: telefone,
 			data: dataBr,
 			idade: form.idade.value,
-			mensagem: mensagem,
+			pacote: pacote,
+			bairro: bairro,
+			criancas: criancas,
 			pagina: location.href.split('#')[0],
 			website: form.website.value
 		}, attribution));
 
-		const linhas = ['Olá, gostaria de agendar uma festa com a GOL FESTA!', 'Nome: ' + nome];
-		if (dataBr) linhas.push('Data desejada: ' + dataBr);
+		const linhas = [pacote
+			? 'Olá! Vim pelo site da Gol Festa e tenho interesse na experiência ' + pacote + '.'
+			: 'Olá! Vim pelo site da Gol Festa e gostaria de consultar uma data para o aniversário.',
+			'Nome: ' + nome];
+		if (dataBr) linhas.push('Data da festa: ' + dataBr);
+		if (bairro) linhas.push('Local/Bairro: ' + bairro);
 		if (form.idade.value) linhas.push('Idade do aniversariante: ' + form.idade.value);
-		if (mensagem) linhas.push(mensagem);
+		if (criancas) linhas.push('Quantidade aproximada de crianças: ' + criancas);
 
-		window.dataLayer.push({ event: 'form_submit', cta_id: 'lead_form' });
+		window.dataLayer.push({ event: 'form_submit', cta_id: 'lead_form', pacote: pacote || 'indefinido' });
 		// pequeno respiro para o beacon sair antes da navegação
 		setTimeout(function () {
 			window.location.href = 'wpp-lead/?text=' + encodeURIComponent(linhas.join('\n'));
