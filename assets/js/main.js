@@ -1,0 +1,142 @@
+(function () {
+	'use strict';
+
+	window.dataLayer = window.dataLayer || [];
+
+	// ---------- Galeria / Lightbox (mesmo comportamento do site original) ----------
+	const galleryImages = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (n) {
+		return 'assets/img/' + n + '-1600.webp';
+	});
+	let currentImageIndex = 0;
+	const lightbox = document.getElementById('lightbox');
+	const lightboxImage = document.getElementById('lightbox-image');
+	const currentImageSpan = document.getElementById('current-image');
+	document.getElementById('total-images').textContent = galleryImages.length;
+
+	function updateLightboxImage() {
+		lightboxImage.src = galleryImages[currentImageIndex];
+		currentImageSpan.textContent = currentImageIndex + 1;
+	}
+	function openLightbox(index) {
+		currentImageIndex = index;
+		updateLightboxImage();
+		lightbox.classList.add('active');
+		document.body.style.overflow = 'hidden';
+	}
+	function closeLightbox() {
+		lightbox.classList.remove('active');
+		document.body.style.overflow = 'auto';
+	}
+	function nextImage() {
+		currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+		updateLightboxImage();
+	}
+	function previousImage() {
+		currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+		updateLightboxImage();
+	}
+
+	document.querySelectorAll('.gallery-image[data-index]').forEach(function (img) {
+		img.addEventListener('click', function () {
+			openLightbox(parseInt(img.dataset.index, 10));
+		});
+	});
+	lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+	lightbox.querySelector('.lightbox-prev').addEventListener('click', previousImage);
+	lightbox.querySelector('.lightbox-next').addEventListener('click', nextImage);
+
+	document.addEventListener('keydown', function (e) {
+		if (!lightbox.classList.contains('active')) return;
+		switch (e.key) {
+			case 'Escape': closeLightbox(); break;
+			case 'ArrowLeft': previousImage(); break;
+			case 'ArrowRight': nextImage(); break;
+		}
+	});
+	lightbox.addEventListener('click', function (e) {
+		if (e.target === lightbox) closeLightbox();
+	});
+
+	// Gestos de toque (mobile)
+	let touchStartX = 0;
+	const lightboxContent = lightbox.querySelector('.lightbox-content');
+	lightboxContent.addEventListener('touchstart', function (e) {
+		touchStartX = e.changedTouches[0].screenX;
+	}, { passive: true });
+	lightboxContent.addEventListener('touchend', function (e) {
+		const diff = touchStartX - e.changedTouches[0].screenX;
+		if (Math.abs(diff) > 50) {
+			if (diff > 0) nextImage(); else previousImage();
+		}
+	});
+
+	// ---------- Menu mobile (o botão existia no original mas não abria nada) ----------
+	const menuToggle = document.getElementById('menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+	menuToggle.addEventListener('click', function () {
+		const open = mobileMenu.classList.toggle('hidden') === false;
+		menuToggle.setAttribute('aria-expanded', String(open));
+	});
+	mobileMenu.querySelectorAll('a').forEach(function (a) {
+		a.addEventListener('click', function () {
+			mobileMenu.classList.add('hidden');
+			menuToggle.setAttribute('aria-expanded', 'false');
+		});
+	});
+
+	// ---------- Tracking de CTAs (eventos no dataLayer para o GTM) ----------
+	document.querySelectorAll('[data-cta]').forEach(function (el) {
+		el.addEventListener('click', function () {
+			window.dataLayer.push({
+				event: el.getAttribute('href').indexOf('tel:') === 0 ? 'phone_click' : 'whatsapp_click',
+				cta_id: el.dataset.cta
+			});
+		});
+	});
+
+	// ---------- Formulário → WhatsApp (sem backend; passa pela página /wpp-lead/ de conversão) ----------
+	const form = document.getElementById('lead-form');
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		const nome = form.nome.value.trim();
+		const error = form.querySelector('.form-error');
+		if (!nome) {
+			error.classList.remove('hidden');
+			form.nome.focus();
+			return;
+		}
+		error.classList.add('hidden');
+
+		const linhas = ['Olá, gostaria de agendar uma festa com a GOL FESTA!', 'Nome: ' + nome];
+		if (form.data.value) {
+			const p = form.data.value.split('-');
+			linhas.push('Data desejada: ' + p[2] + '/' + p[1] + '/' + p[0]);
+		}
+		if (form.idade.value) linhas.push('Idade do aniversariante: ' + form.idade.value);
+		if (form.mensagem.value.trim()) linhas.push(form.mensagem.value.trim());
+
+		window.dataLayer.push({ event: 'form_submit', cta_id: 'lead_form' });
+		window.location.href = 'wpp-lead/?text=' + encodeURIComponent(linhas.join('\n'));
+	});
+
+	// ---------- Embed do Instagram: carrega embed.js só quando a galeria se aproxima ----------
+	const igWrap = document.getElementById('video');
+	function loadInstagram() {
+		if (window.instgrm) { window.instgrm.Embeds.process(); return; }
+		const s = document.createElement('script');
+		s.src = 'https://www.instagram.com/embed.js';
+		s.async = true;
+		document.body.appendChild(s);
+	}
+	if ('IntersectionObserver' in window) {
+		const io = new IntersectionObserver(function (entries) {
+			if (entries.some(function (en) { return en.isIntersecting; })) {
+				io.disconnect();
+				loadInstagram();
+			}
+		}, { rootMargin: '600px 0px' });
+		io.observe(igWrap);
+	} else {
+		loadInstagram();
+	}
+})();

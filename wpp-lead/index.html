@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<title>Redirecionando para WhatsApp - GolFesta</title>
+	<link rel="icon" href="../favicon.ico" sizes="any">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+	<link rel="stylesheet" href="../assets/css/tailwind.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		body { font-family: 'Poppins', sans-serif; }
+		.hero-gradient { background: linear-gradient(135deg, #FFD600 0%, #2E7D32 50%, #005AE0 100%); }
+		.loader { border: 4px solid #f3f3f3; border-top: 4px solid #25D366; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+		@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+		.progress-bar { transition: width 0.1s linear; }
+	</style>
+	<script>
+		// Página de conversão: o GTM/Google Ads contam a visita a /wpp-lead/ como lead de WhatsApp.
+		// Correção vs. original: agora respeita a mensagem pré-preenchida (?text=) e o parâmetro
+		// legado ?url= (apenas wa.me / api.whatsapp.com), que antes eram ignorados.
+		(function () {
+			var PHONE = '5561995503030';
+			var q = new URLSearchParams(location.search);
+			var target = 'https://wa.me/' + PHONE;
+			if (q.get('text')) {
+				target += '?text=' + encodeURIComponent(q.get('text'));
+			} else if (q.get('url')) {
+				try {
+					var u = new URL(q.get('url'));
+					if (u.protocol === 'https:' && /^(wa\.me|api\.whatsapp\.com)$/.test(u.hostname)) target = u.href;
+				} catch (e) {}
+			}
+			window.WPP_TARGET = target;
+
+			var done = false;
+			function go() { if (!done) { done = true; location.replace(target); } }
+
+			window.dataLayer = window.dataLayer || [];
+			if (/(^|\.)golfesta\.com\.br$/.test(location.hostname)) {
+				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-58DZ7ZMV');
+			}
+			// Antes: gtag('event', ...) — gtag não existe numa página só com GTM, então o evento nunca disparava.
+			window.dataLayer.push({
+				event: 'whatsapp_redirect',
+				event_category: 'engagement',
+				event_label: 'whatsapp_lead_page',
+				eventCallback: function () { setTimeout(go, 300); },
+				eventTimeout: 2000
+			});
+			// Garantia: redireciona em no máximo 2s (mesmo tempo do original), com ou sem GTM.
+			setTimeout(go, 2000);
+		})();
+	</script>
+</head>
+<body class="bg-white">
+	<div class="hero-gradient min-h-screen flex items-center justify-center">
+		<div class="text-center text-white p-8">
+			<div class="mb-8">
+				<img src="../assets/img/logo-256.webp" width="128" height="128" alt="GolFesta Logo" class="mx-auto w-32 h-auto">
+			</div>
+			<div class="loader"></div>
+			<h1 class="text-2xl md:text-3xl font-bold mb-4">
+				<i class="fab fa-whatsapp text-4xl mb-4 block text-green-400" aria-hidden="true"></i>
+				Estamos redirecionando você para nosso WhatsApp
+			</h1>
+			<p class="text-lg mb-6 opacity-90">Aguarde alguns segundos...</p>
+			<div class="w-full bg-white bg-opacity-30 rounded-full h-2 mb-6 max-w-md mx-auto">
+				<div class="bg-green-400 h-2 rounded-full progress-bar" style="width: 0%;"></div>
+			</div>
+			<p class="text-sm opacity-75 mb-4">Caso não seja redirecionado automaticamente:</p>
+			<a id="manual-link" href="https://wa.me/5561995503030"
+				class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+				<i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>
+				Clique aqui para WhatsApp
+			</a>
+		</div>
+	</div>
+	<script>
+		document.getElementById('manual-link').href = window.WPP_TARGET;
+		var progress = 0;
+		var bar = document.querySelector('.progress-bar');
+		var interval = setInterval(function () {
+			progress += 5;
+			bar.style.width = progress + '%';
+			if (progress >= 100) clearInterval(interval);
+		}, 100);
+	</script>
+</body>
+</html>
