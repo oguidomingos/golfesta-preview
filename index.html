@@ -322,11 +322,16 @@
 			aniversários em momentos inesquecíveis! Garantimos um evento organizado, cheio de energia e emoção, para que
 			cada criança viva o sonho de ser um verdadeiro campeão!</p>
 
-		<form id="lead-form" class="lead-form max-w-xl mx-auto text-left mb-8" novalidate>
+		<!-- data-sheet-url: URL /exec do Apps Script (apps-script/Code.gs). Vazio = só abre o WhatsApp, sem gravar. -->
+		<form id="lead-form" class="lead-form max-w-xl mx-auto text-left mb-8" novalidate data-sheet-url="">
 			<div class="grid sm:grid-cols-2 gap-4">
 				<label class="block sm:col-span-2">
 					<span class="text-sm font-semibold text-[#333333]">Seu nome</span>
 					<input name="nome" type="text" required autocomplete="name" class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#2E7D32] focus:outline-none">
+				</label>
+				<label class="block sm:col-span-2">
+					<span class="text-sm font-semibold text-[#333333]">WhatsApp / telefone</span>
+					<input name="telefone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="(61) 90000-0000" class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#2E7D32] focus:outline-none">
 				</label>
 				<label class="block">
 					<span class="text-sm font-semibold text-[#333333]">Data desejada</span>
@@ -341,7 +346,9 @@
 					<textarea name="mensagem" rows="3" class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#2E7D32] focus:outline-none"></textarea>
 				</label>
 			</div>
-			<p class="form-error hidden text-sm text-red-600 mt-2" role="alert">Preencha seu nome para continuar.</p>
+			<!-- honeypot anti-spam: invisível para pessoas -->
+			<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
+			<p class="form-error hidden text-sm text-red-600 mt-2" role="alert">Preencha seu nome e telefone para continuar.</p>
 			<button type="submit" class="btn-primary w-full text-white font-bold py-4 px-10 rounded-full mt-4">
 				<i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>Agende pelo WhatsApp</button>
 		</form>

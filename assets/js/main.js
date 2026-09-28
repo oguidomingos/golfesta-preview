@@ -94,29 +94,70 @@
 		});
 	});
 
-	// ---------- Formulário → WhatsApp (sem backend; passa pela página /wpp-lead/ de conversão) ----------
+	// ---------- Origem do tráfego (UTM/gclid) guardada na 1ª página vista, para ir junto com o lead ----------
+	const ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'gclid'];
+	const attribution = (function () {
+		const q = new URLSearchParams(location.search);
+		let saved = {};
+		try { saved = JSON.parse(sessionStorage.getItem('gf_attr') || '{}'); } catch (e) {}
+		if (ATTR_KEYS.some(function (k) { return q.get(k); })) {
+			saved = {};
+			ATTR_KEYS.forEach(function (k) { if (q.get(k)) saved[k] = q.get(k); });
+			try { sessionStorage.setItem('gf_attr', JSON.stringify(saved)); } catch (e) {}
+		}
+		return saved;
+	})();
+
+	// ---------- Formulário → planilha (Apps Script) + WhatsApp (via /wpp-lead/ de conversão) ----------
 	const form = document.getElementById('lead-form');
+	function sendToSheet(data) {
+		const url = form.dataset.sheetUrl;
+		if (!url) return;
+		const body = new URLSearchParams(data);
+		// sendBeacon sobrevive à navegação para o WhatsApp; fetch keepalive é o plano B.
+		if (!(navigator.sendBeacon && navigator.sendBeacon(url, body))) {
+			fetch(url, { method: 'POST', body: body, mode: 'no-cors', keepalive: true }).catch(function () {});
+		}
+	}
 	form.addEventListener('submit', function (e) {
 		e.preventDefault();
 		const nome = form.nome.value.trim();
+		const telefone = form.telefone.value.trim();
 		const error = form.querySelector('.form-error');
-		if (!nome) {
+		if (!nome || telefone.replace(/\D/g, '').length < 10) {
 			error.classList.remove('hidden');
-			form.nome.focus();
+			(nome ? form.telefone : form.nome).focus();
 			return;
 		}
 		error.classList.add('hidden');
 
-		const linhas = ['Olá, gostaria de agendar uma festa com a GOL FESTA!', 'Nome: ' + nome];
+		let dataBr = '';
 		if (form.data.value) {
 			const p = form.data.value.split('-');
-			linhas.push('Data desejada: ' + p[2] + '/' + p[1] + '/' + p[0]);
+			dataBr = p[2] + '/' + p[1] + '/' + p[0];
 		}
+		const mensagem = form.mensagem.value.trim();
+
+		sendToSheet(Object.assign({
+			nome: nome,
+			telefone: telefone,
+			data: dataBr,
+			idade: form.idade.value,
+			mensagem: mensagem,
+			pagina: location.href.split('#')[0],
+			website: form.website.value
+		}, attribution));
+
+		const linhas = ['Olá, gostaria de agendar uma festa com a GOL FESTA!', 'Nome: ' + nome];
+		if (dataBr) linhas.push('Data desejada: ' + dataBr);
 		if (form.idade.value) linhas.push('Idade do aniversariante: ' + form.idade.value);
-		if (form.mensagem.value.trim()) linhas.push(form.mensagem.value.trim());
+		if (mensagem) linhas.push(mensagem);
 
 		window.dataLayer.push({ event: 'form_submit', cta_id: 'lead_form' });
-		window.location.href = 'wpp-lead/?text=' + encodeURIComponent(linhas.join('\n'));
+		// pequeno respiro para o beacon sair antes da navegação
+		setTimeout(function () {
+			window.location.href = 'wpp-lead/?text=' + encodeURIComponent(linhas.join('\n'));
+		}, 150);
 	});
 
 	// ---------- Embed do Instagram (hero): embed.js carregado logo, pois está acima da dobra ----------
