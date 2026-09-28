@@ -27,9 +27,9 @@
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<link rel="manifest" href="site.webmanifest">
 
+	<link rel="preconnect" href="https://www.instagram.com">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="image" href="assets/img/9-800.webp" imagesrcset="assets/img/9-800.webp 800w, assets/img/9-1200.webp 1200w" imagesizes="(min-width: 768px) 50vw, 100vw" fetchpriority="high">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap">
 	<link rel="stylesheet" href="assets/css/tailwind.css">
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -132,13 +132,18 @@
 					</a>
 				</div>
 			</div>
-			<div class="md:w-1/2 flex justify-center">
-				<img src="assets/img/9-800.webp"
-					srcset="assets/img/9-800.webp 800w, assets/img/9-1200.webp 1200w"
-					sizes="(min-width: 768px) 50vw, 100vw" width="1200" height="800" fetchpriority="high"
-					alt="Aniversário com torneio de futebol da GolFesta"
-					class="gallery-image rounded-lg shadow-2xl w-full h-auto cursor-zoom-in"
-					data-index="8">
+			<!-- Reel oficial @gol.festa (embed oficial do Instagram) -->
+			<div class="md:w-1/2 w-full flex justify-center">
+				<div id="video" class="ig-embed-wrap w-full">
+					<blockquote class="instagram-media"
+						data-instgrm-permalink="https://www.instagram.com/reel/Dcqjt7BxaG_/?utm_source=ig_embed&amp;utm_campaign=loading"
+						data-instgrm-version="14">
+						<a href="https://www.instagram.com/reel/Dcqjt7BxaG_/" target="_blank" rel="noopener" class="ig-fallback">
+							<i class="fab fa-instagram text-3xl mb-2" aria-hidden="true"></i>
+							<span>Ver este reel no Instagram</span>
+						</a>
+					</blockquote>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -200,17 +205,6 @@
 				Galeria de Momentos Incríveis
 			</h2>
 
-			<!-- Reel oficial @gol.festa (embed oficial do Instagram; embed.js carregado sob demanda em main.js) -->
-			<div id="video" class="ig-embed-wrap mb-12">
-				<blockquote class="instagram-media"
-					data-instgrm-permalink="https://www.instagram.com/reel/Dcqjt7BxaG_/?utm_source=ig_embed&amp;utm_campaign=loading"
-					data-instgrm-version="14">
-					<a href="https://www.instagram.com/reel/Dcqjt7BxaG_/" target="_blank" rel="noopener" class="ig-fallback">
-						<i class="fab fa-instagram text-3xl mb-2" aria-hidden="true"></i>
-						<span>Ver este reel no Instagram</span>
-					</a>
-				</blockquote>
-			</div>
 
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/1-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa GolFesta – foto 1" class="gallery-image w-full h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="0"></div>
@@ -221,6 +215,7 @@
 				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/6-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa GolFesta – foto 6" class="gallery-image w-full h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="5"></div>
 				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/7-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa GolFesta – foto 7" class="gallery-image w-full h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="6"></div>
 				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/8-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa GolFesta – foto 8" class="gallery-image w-full h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="7"></div>
+				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/9-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa GolFesta – foto 9" class="gallery-image w-full h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="8"></div>
 			</div>
 		</div>
 	</section>

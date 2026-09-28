@@ -119,24 +119,13 @@
 		window.location.href = 'wpp-lead/?text=' + encodeURIComponent(linhas.join('\n'));
 	});
 
-	// ---------- Embed do Instagram: carrega embed.js só quando a galeria se aproxima ----------
-	const igWrap = document.getElementById('video');
-	function loadInstagram() {
-		if (window.instgrm) { window.instgrm.Embeds.process(); return; }
+	// ---------- Embed do Instagram (hero): embed.js carregado logo, pois está acima da dobra ----------
+	if (window.instgrm) {
+		window.instgrm.Embeds.process();
+	} else {
 		const s = document.createElement('script');
 		s.src = 'https://www.instagram.com/embed.js';
 		s.async = true;
 		document.body.appendChild(s);
-	}
-	if ('IntersectionObserver' in window) {
-		const io = new IntersectionObserver(function (entries) {
-			if (entries.some(function (en) { return en.isIntersecting; })) {
-				io.disconnect();
-				loadInstagram();
-			}
-		}, { rootMargin: '600px 0px' });
-		io.observe(igWrap);
-	} else {
-		loadInstagram();
 	}
 })();
