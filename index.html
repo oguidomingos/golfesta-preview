@@ -8,7 +8,7 @@
 	<title>Festa de Futebol Infantil em Brasília | Gol Festa</title>
 	<meta name="description" content="Transforme o aniversário em uma experiência de futebol com narração, arbitragem, campeonato, profissionais de Educação Física, premiação e muita diversão. Conheça a Gol Festa.">
 	<link rel="canonical" href="https://golfesta.com.br/">
-	<meta name="theme-color" content="#2E7D32">
+	<meta name="theme-color" content="#07140c">
 
 	<!-- Open Graph / redes sociais -->
 	<meta property="og:type" content="website">
@@ -30,9 +30,10 @@
 	<link rel="preconnect" href="https://www.instagram.com">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&display=swap">
 	<link rel="stylesheet" href="assets/css/tailwind.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="preload" as="image" href="assets/img/9-1200.webp" fetchpriority="high">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
@@ -66,300 +67,268 @@
 	</script>
 </head>
 
-<body class="bg-white text-[#333333]">
-	<!-- Botão flutuante (desktop) -->
-	<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_flutuante" aria-label="Consultar minha data pelo WhatsApp"
-		class="wpp-float hidden md:block fixed bottom-8 right-8 z-40 bg-green-500 text-white p-4 rounded-full shadow-lg animate-pulse">
-		<i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i>
-	</a>
-	<!-- Barra fixa (mobile) -->
-	<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_rodape"
-		class="md:hidden fixed bottom-0 inset-x-0 z-40 flex items-center justify-center gap-2 bg-green-500 text-white font-bold py-4 shadow-[0_-4px_12px_rgba(0,0,0,0.15)]">
-		📲 CONSULTAR MINHA DATA
-	</a>
+<body>
+	<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_flutuante" aria-label="Consultar minha data pelo WhatsApp" class="wpp-float"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+	<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_rodape" class="mbar"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar minha data</a>
 
-	<header class="bg-white shadow-sm sticky top-0 z-50">
-		<div class="container mx-auto px-4 py-3 flex justify-between md:justify-center items-center">
-			<img src="assets/img/logo-256.webp" width="40" height="40" alt="Gol Festa" class="w-10 h-10 md:hidden">
-			<nav class="hidden md:flex space-x-8">
-				<a href="#experiencias" class="font-medium hover:text-[#2E7D32]">Experiências</a>
-				<a href="#adicionais" class="font-medium hover:text-[#2E7D32]">Adicionais</a>
-				<a href="#como-funciona" class="font-medium hover:text-[#2E7D32]">Como Funciona</a>
-				<a href="#galeria" class="font-medium hover:text-[#2E7D32]">Galeria</a>
-				<a href="#contato" class="font-medium hover:text-[#2E7D32]">Contato</a>
+	<header class="top">
+		<div class="wrap top-in">
+			<a href="#" class="brand"><img src="assets/img/logo-256.webp" width="44" height="44" alt="Gol Festa"></a>
+			<nav class="nav">
+				<a href="#experiencias">Experiências</a>
+				<a href="#adicionais">Adicionais</a>
+				<a href="#galeria">Galeria</a>
+				<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_header" class="nav-cta">Consultar data</a>
 			</nav>
-			<button id="menu-toggle" class="md:hidden" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars text-2xl" aria-hidden="true"></i></button>
+			<button id="menu-toggle" class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
 		</div>
-		<nav id="mobile-menu" class="md:hidden hidden border-t border-gray-100 bg-white">
-			<a href="#experiencias" class="block px-6 py-3 font-medium">Experiências</a>
-			<a href="#adicionais" class="block px-6 py-3 font-medium">Adicionais</a>
-			<a href="#como-funciona" class="block px-6 py-3 font-medium">Como Funciona</a>
-			<a href="#galeria" class="block px-6 py-3 font-medium">Galeria</a>
-			<a href="#contato" class="block px-6 py-3 font-medium">Contato</a>
+		<nav id="mobile-menu" class="mnav hidden">
+			<a href="#experiencias">Experiências</a>
+			<a href="#adicionais">Adicionais</a>
+			<a href="#galeria">Galeria</a>
+			<a href="#contato">Contato</a>
 		</nav>
 	</header>
 
 	<main>
-	<!-- 1. Hero -->
-	<section class="hero-gradient text-white py-10 md:py-20">
-		<div class="container mx-auto px-4 flex flex-col md:flex-row items-center md:gap-10">
-			<div class="md:w-1/2 mb-10 md:mb-0">
-				<img src="assets/img/logo-256.webp" width="256" height="256" alt="Gol Festa" class="hidden md:block w-28 mb-6">
-				<p class="inline-block bg-[#FFD600] text-[#333333] px-4 py-1 rounded-full text-sm font-semibold">⚽ Festa de futebol infantil em Brasília-DF e Região</p>
-				<h1 class="text-3xl md:text-5xl font-extrabold leading-tight mt-5 mb-5">Transforme o aniversário do seu filho em uma Final de Copa 🏆</h1>
-				<p class="text-lg md:text-xl mb-6">Aqui, o aniversariante não apenas comemora. <strong>Ele entra em campo e vive a própria Final de Copa.</strong></p>
-				<ul class="hero-badges grid grid-cols-1 sm:grid-cols-3 gap-2 mb-8 text-sm font-semibold">
-					<li>⏱️ 3 horas de experiência</li>
-					<li>👧👦 A partir de 5 anos</li>
-					<li>👨‍🏫 Profissionais de Educação Física</li>
+	<section class="hero">
+		<img class="hero-bg" src="assets/img/9-1200.webp" srcset="assets/img/9-800.webp 800w, assets/img/9-1200.webp 1200w, assets/img/9-1600.webp 1600w" sizes="100vw" width="1600" height="1067" fetchpriority="high" alt="">
+		<div class="wrap hero-in">
+			<p class="eyebrow">⚽ Festa de futebol infantil • Brasília-DF</p>
+			<h1>Transforme o aniversário do seu filho em uma <em>Final de Copa</em></h1>
+			<p class="lead">Aqui, o aniversariante não apenas comemora. Ele entra em campo.</p>
+			<div class="ctas">
+				<a href="#experiencias" data-cta="hero_experiencias" class="btn btn-gold">Conheça as experiências</a>
+				<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_hero" class="btn btn-ghost"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar minha data</a>
+			</div>
+			<ul class="stats">
+				<li><b>3h</b><span>de experiência</span></li>
+				<li><b>5+</b><span>anos de idade</span></li>
+				<li><b>25</b><span>crianças por pacote</span></li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="show">
+		<div class="wrap show-in">
+			<div class="show-txt">
+				<p class="kicker">Mais do que futebol</p>
+				<h2>O aniversário vira evento.</h2>
+				<ul class="feat">
+					<li><span>🏟️</span>Abertura estilo Copa do Mundo</li>
+					<li><span>🎤</span>Narração ao vivo</li>
+					<li><span>🧑‍⚖️</span>Arbitragem uniformizada</li>
+					<li><span>👨‍🏫</span>Profissionais de Educação Física</li>
 				</ul>
-				<div class="flex flex-col sm:flex-row gap-3">
-					<a href="#experiencias" data-cta="hero_experiencias" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-center">⚽ CONHEÇA NOSSAS EXPERIÊNCIAS</a>
-					<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_hero" class="bg-white text-[#2E7D32] font-bold py-4 px-8 rounded-full hover:bg-gray-100 transition text-center">📲 CONSULTAR MINHA DATA</a>
-				</div>
 			</div>
-			<!-- Reel oficial @gol.festa (embed oficial do Instagram) -->
-			<div class="md:w-1/2 w-full flex justify-center">
-				<div id="video" class="ig-embed-wrap w-full">
-					<blockquote class="instagram-media"
-						data-instgrm-permalink="https://www.instagram.com/reel/Dcqjt7BxaG_/?utm_source=ig_embed&amp;utm_campaign=loading"
-						data-instgrm-version="14">
-						<a href="https://www.instagram.com/reel/Dcqjt7BxaG_/" target="_blank" rel="noopener" class="ig-fallback">
-							<i class="fab fa-instagram text-3xl mb-2" aria-hidden="true"></i>
-							<span>Ver este reel no Instagram</span>
-						</a>
-					</blockquote>
-				</div>
+			<div id="video" class="ig-embed-wrap">
+				<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dcqjt7BxaG_/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+					<a href="https://www.instagram.com/reel/Dcqjt7BxaG_/" target="_blank" rel="noopener" class="ig-fallback"><i class="fab fa-instagram" aria-hidden="true"></i><span>Ver o reel no Instagram</span></a>
+				</blockquote>
 			</div>
 		</div>
 	</section>
 
-	<!-- 2. Posicionamento / diferenciais -->
-	<section class="py-16 md:py-20 px-4 bg-white text-center">
-		<h2 class="section-title">Mais do que futebol. Uma experiência.</h2>
-		<p class="text-lg md:text-xl max-w-3xl mx-auto">A Gol Festa transforma o aniversário em um evento: uma recreação esportiva organizada, com clima de campeonato e conduzida por profissionais. Aqui, cada criança entra em campo como atleta.</p>
-		<div class="grid sm:grid-cols-3 gap-6 container mx-auto mt-10 text-left">
-			<div class="card"><i class="fas fa-users-cog text-3xl text-[#2E7D32] mb-3" aria-hidden="true"></i>
-				<h3 class="font-bold mb-2">Organização profissional</h3>
-				<p>Nossa equipe, composta por Professores de Educação Física, garante um evento planejado e uma experiência única.</p></div>
-			<div class="card"><i class="fas fa-microphone text-3xl text-[#005AE0] mb-3" aria-hidden="true"></i>
-				<h3 class="font-bold mb-2">Clima de grande evento</h3>
-				<p>Abertura estilo Copa do Mundo, narração ao vivo e arbitragem uniformizada. O aniversário vira campeonato.</p></div>
-			<div class="card"><i class="fas fa-shield-alt text-3xl text-[#2E7D32] mb-3" aria-hidden="true"></i>
-				<h3 class="font-bold mb-2">Segurança total</h3>
-				<p>Eventos realizados com a estrutura necessária para garantir segurança sem deixar a diversão de lado.</p></div>
-		</div>
-	</section>
-
-	<!-- 3. Pacotes -->
-	<section id="experiencias" class="py-16 md:py-20 px-4 bg-gradient-to-b from-[#f4f8f4] to-white">
-		<div class="container mx-auto">
-			<h2 class="section-title text-center">Escolha a experiência ideal para a sua festa <span class="emo">⚽🏆</span></h2>
-			<p class="text-center text-lg max-w-2xl mx-auto mb-10">Três formas de viver a Gol Festa. Escolha a sua e nossa equipe cuida do restante.</p>
-			<div class="grid lg:grid-cols-3 gap-6 items-start">
-
-				<article class="pkg pkg-green">
-					<p class="pkg-tag">🟢 Pontapé Inicial</p>
-					<h3 class="pkg-title">Futebol, organização e muita energia.</h3>
-					<p class="mb-4">Ideal para quem busca uma festa esportiva dinâmica, organizada e divertida, tendo o futebol como grande atração.</p>
-					<p class="pkg-label">Incluso:</p>
-					<ul class="pkg-list">
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>3 horas de experiência Gol Festa</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Cerimônia de Abertura Estilo Copa do Mundo</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Entrada oficial dos atletas</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Formação das equipes</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Execução do Hino Nacional</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Desafios de Futebol X1 e X2</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Narração ao vivo</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Arbitragem profissional uniformizada</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Organização e condução das crianças</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Materiais esportivos</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>2 profissionais de Educação Física</span></li>
+	<section id="experiencias" class="sec">
+		<div class="wrap">
+			<p class="kicker center">Sem preço aqui: primeiro você escolhe a experiência</p>
+			<h2 class="center">Escolha a experiência</h2>
+			<div class="pkgs">
+				<article class="pkg p1">
+					<div class="pkg-head">
+						<div class="lvl" aria-label="Nível 1 de 3"><i class="on"></i><i class=""></i><i class=""></i></div>
+						<h3>Pontapé Inicial</h3>
+						<p>Futebol, organização e muita energia.</p>
+					</div>
+					
+					<ul class="hl">
+						<li><span>🏟️</span>Abertura estilo Copa do Mundo + Hino</li>
+						<li><span>⚽</span>Desafios X1 e X2</li>
+						<li><span>🎤</span>Narração ao vivo e arbitragem</li>
+						<li><span>👨‍🏫</span>2 profissionais de Ed. Física</li>
 					</ul>
-					<p class="pkg-close">Uma recreação esportiva estruturada e profissional, onde o futebol deixa de ser apenas uma brincadeira e ganha clima de evento.</p>
-					<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20conhecer%20melhor%20o%20pacote%20Pontap%C3%A9%20Inicial%20%E2%9A%BD." data-cta="pacote_pontape_inicial" class="pkg-btn bg-[#2E7D32]">⚽ QUERO CONHECER O PONTAPÉ INICIAL</a>
+					<details class="all">
+						<summary>Ver tudo que inclui (11 itens)</summary>
+						<ul>
+							<li>3 horas de experiência Gol Festa</li>
+							<li>Cerimônia de Abertura Estilo Copa do Mundo</li>
+							<li>Entrada oficial dos atletas</li>
+							<li>Formação das equipes</li>
+							<li>Execução do Hino Nacional</li>
+							<li>Desafios de Futebol X1 e X2</li>
+							<li>Narração ao vivo</li>
+							<li>Arbitragem profissional uniformizada</li>
+							<li>Organização e condução das crianças</li>
+							<li>Materiais esportivos</li>
+							<li>2 profissionais de Educação Física</li>
+						</ul>
+					</details>
+					<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20conhecer%20melhor%20o%20pacote%20Pontap%C3%A9%20Inicial%20%E2%9A%BD." data-cta="pacote_pontape_inicial" class="btn btn-ghost">PONTAPÉ INICIAL <span aria-hidden="true">→</span></a>
 				</article>
-
-				<article class="pkg pkg-yellow">
-					<p class="pkg-tag">🟡 Campeões da Festa</p>
-					<h3 class="pkg-title">🏆 Uma verdadeira experiência de campeonato.</h3>
-					<p class="mb-4">Ideal para aniversariantes apaixonados por futebol que querem viver com os amigos a emoção de participar de uma grande competição.</p>
-					<p class="pkg-label">Incluso:</p>
-					<ul class="pkg-list">
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>3 horas de experiência Gol Festa</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Cerimônia de Abertura Estilo Copa do Mundo</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Apresentação oficial das equipes</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Chamada dos atletas pelo nome</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Formação e organização das equipes</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Experiência conduzida em formato de campeonato</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Desafios de Futebol X1 e X2</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Partidas organizadas</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Narração ao vivo</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Arbitragem profissional uniformizada</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Organização e condução das crianças</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Materiais esportivos</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Medalhas personalizadas</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Troféu de Artilheiro</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Troféu de Melhor Goleiro</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Troféu de Craque da Partida</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>Cerimônia de Premiação</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#2E7D32] mt-1" aria-hidden="true"></i><span>2 profissionais de Educação Física</span></li>
+				<article class="pkg p2">
+					<div class="pkg-head">
+						<div class="lvl" aria-label="Nível 2 de 3"><i class="on"></i><i class="on"></i><i class=""></i></div>
+						<h3>Campeões da Festa</h3>
+						<p>Uma verdadeira experiência de campeonato.</p>
+					</div>
+					<p class="plus">Tudo do Pontapé Inicial +</p>
+					<ul class="hl">
+						<li><span>🏆</span>Formato de campeonato</li>
+						<li><span>📣</span>Atletas chamados pelo nome</li>
+						<li><span>🥇</span>Medalhas personalizadas</li>
+						<li><span>🏅</span>3 troféus + cerimônia de premiação</li>
 					</ul>
-					<p class="pkg-close">Aqui, as crianças não participam apenas de uma recreação. Elas são chamadas pelo nome, apresentadas como atletas, entram em equipes, disputam partidas e vivem um verdadeiro dia de campeonato.</p>
-					<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20me%20interessei%20pelo%20Campe%C3%B5es%20da%20Festa%20%F0%9F%8F%86.%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es." data-cta="pacote_campeoes_da_festa" class="pkg-btn bg-[#005AE0]">🏆 QUERO CONHECER O CAMPEÕES DA FESTA</a>
+					<details class="all">
+						<summary>Ver tudo que inclui (18 itens)</summary>
+						<ul>
+							<li>3 horas de experiência Gol Festa</li>
+							<li>Cerimônia de Abertura Estilo Copa do Mundo</li>
+							<li>Apresentação oficial das equipes</li>
+							<li>Chamada dos atletas pelo nome</li>
+							<li>Formação e organização das equipes</li>
+							<li>Experiência conduzida em formato de campeonato</li>
+							<li>Desafios de Futebol X1 e X2</li>
+							<li>Partidas organizadas</li>
+							<li>Narração ao vivo</li>
+							<li>Arbitragem profissional uniformizada</li>
+							<li>Organização e condução das crianças</li>
+							<li>Materiais esportivos</li>
+							<li>Medalhas personalizadas</li>
+							<li>Troféu de Artilheiro</li>
+							<li>Troféu de Melhor Goleiro</li>
+							<li>Troféu de Craque da Partida</li>
+							<li>Cerimônia de Premiação</li>
+							<li>2 profissionais de Educação Física</li>
+						</ul>
+					</details>
+					<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20me%20interessei%20pelo%20Campe%C3%B5es%20da%20Festa%20%F0%9F%8F%86.%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es." data-cta="pacote_campeoes_da_festa" class="btn btn-ghost">CAMPEÕES DA FESTA <span aria-hidden="true">→</span></a>
 				</article>
-
-				<article class="pkg pkg-featured">
-					<p class="pkg-seal">⭐ NOSSA EXPERIÊNCIA MAIS COMPLETA</p>
-					<p class="pkg-tag">🔴 Final de Copa</p>
-					<h3 class="pkg-title">Futebol, competição, premiação, recreação e atrações especiais em uma única experiência.</h3>
-					<p class="pkg-label">Incluso:</p>
-					<ul class="pkg-list">
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>3 horas de experiência Gol Festa</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Cerimônia de Abertura Estilo Copa do Mundo</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Apresentação oficial das equipes</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Chamada dos atletas pelo nome</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Formação e organização das equipes</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Experiência conduzida em formato de campeonato</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Desafios de Futebol X1 e X2</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Partidas organizadas</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Narração ao vivo</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Arbitragem profissional uniformizada</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Organização e condução das crianças</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Materiais esportivos</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Medalhas personalizadas</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Troféu de Artilheiro</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Troféu de Melhor Goleiro</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Troféu de Craque da Partida</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Cerimônia de Premiação</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Brincadeiras recreativas</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Guerra de Balões de Água</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Torta na Cara</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Pintura de Cabelo com Spray Colorido</span></li>
-						<li class="flex gap-2 font-semibold"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>Balão Surpresa Gigante</span></li>
-						<li class="flex gap-2"><i class="fas fa-check-circle text-[#FFD600] mt-1" aria-hidden="true"></i><span>2 profissionais de Educação Física</span></li>
+				<article class="pkg p3 featured">
+					<p class="seal">⭐ Mais completa</p><div class="pkg-head">
+						<div class="lvl" aria-label="Nível 3 de 3"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+						<h3>Final de Copa</h3>
+						<p>A experiência completa Gol Festa.</p>
+					</div>
+					<p class="plus">Tudo do Campeões da Festa +</p>
+					<ul class="hl">
+						<li><span>💦</span>Guerra de balões de água</li>
+						<li><span>😂</span>Torta na cara</li>
+						<li><span>🌈</span>Cabelo colorido com spray</li>
+						<li><span>🎈</span>Balão surpresa gigante</li>
 					</ul>
-					<p class="pkg-close">O Final de Copa reúne tudo o que torna a Gol Festa especial em uma única experiência. A programação pode ser adaptada ao perfil das crianças, espaço disponível e andamento da festa.</p>
-					<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20quero%20conhecer%20melhor%20a%20experi%C3%AAncia%20Final%20de%20Copa%20%E2%AD%90%F0%9F%8F%86." data-cta="pacote_final_de_copa" class="pkg-btn bg-[#FFD600] !text-[#333333]">⭐ QUERO CONHECER O FINAL DE COPA</a>
+					<details class="all">
+						<summary>Ver tudo que inclui (23 itens)</summary>
+						<ul>
+							<li>3 horas de experiência Gol Festa</li>
+							<li>Cerimônia de Abertura Estilo Copa do Mundo</li>
+							<li>Apresentação oficial das equipes</li>
+							<li>Chamada dos atletas pelo nome</li>
+							<li>Formação e organização das equipes</li>
+							<li>Experiência conduzida em formato de campeonato</li>
+							<li>Desafios de Futebol X1 e X2</li>
+							<li>Partidas organizadas</li>
+							<li>Narração ao vivo</li>
+							<li>Arbitragem profissional uniformizada</li>
+							<li>Organização e condução das crianças</li>
+							<li>Materiais esportivos</li>
+							<li>Medalhas personalizadas</li>
+							<li>Troféu de Artilheiro</li>
+							<li>Troféu de Melhor Goleiro</li>
+							<li>Troféu de Craque da Partida</li>
+							<li>Cerimônia de Premiação</li>
+							<li>Brincadeiras recreativas</li>
+							<li>Guerra de Balões de Água</li>
+							<li>Torta na Cara</li>
+							<li>Pintura de Cabelo com Spray Colorido</li>
+							<li>Balão Surpresa Gigante</li>
+							<li>2 profissionais de Educação Física</li>
+						</ul>
+					</details>
+					<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20quero%20conhecer%20melhor%20a%20experi%C3%AAncia%20Final%20de%20Copa%20%E2%AD%90%F0%9F%8F%86." data-cta="pacote_final_de_copa" class="btn btn-gold">FINAL DE COPA <span aria-hidden="true">→</span></a>
 				</article>
 			</div>
-			<p class="text-center text-sm text-gray-500 mt-4">Em negrito: o que cada experiência acrescenta em relação à anterior.</p>
+			<p class="note">👧👦 Até 25 crianças em todos os pacotes. <a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20festa%20para%20mais%20de%2025%20crian%C3%A7as." data-cta="mais_de_25_criancas">Mais de 25? Fale com a gente →</a></p>
+		</div>
+	</section>
 
-			<!-- Quantidade de participantes -->
-			<div class="max-w-3xl mx-auto mt-12 rounded-2xl border-2 border-dashed border-[#2E7D32] bg-white p-6 md:p-8 text-center">
-				<h3 class="text-xl md:text-2xl font-bold mb-3">👧👦 Quantidade de participantes</h3>
-				<p class="mb-2">Os pacotes contemplam eventos com <strong>até 25 crianças participantes</strong>.</p>
-				<p class="mb-6">Para eventos com quantidade superior, a equipe Gol Festa poderá orientar sobre a adequação necessária para manter a organização e qualidade da experiência.</p>
-				<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20festa%20para%20mais%20de%2025%20crian%C3%A7as." data-cta="mais_de_25_criancas" class="btn-primary inline-block text-white font-bold py-3 px-6 rounded-full">📲 CONSULTAR PARA MAIS DE 25 CRIANÇAS</a>
+	<section id="adicionais" class="sec alt">
+		<div class="wrap">
+			<p class="kicker center">Adicionais</p>
+			<h2 class="center">Deixe ainda mais completa</h2>
+			<div class="chips">
+				<span>🎨 Pintura de rosto</span>
+				<span>💦 Guerra de balões <em>no Final de Copa</em></span>
+				<span>😂 Torta na cara <em>no Final de Copa</em></span>
+				<span>🌈 Cabelo colorido <em>no Final de Copa</em></span>
+				<span>🎈 Balão surpresa <em>no Final de Copa</em></span>
+				<span>📸 Fotógrafo</span>
+				<span>🎥 Filmmaker</span>
+				<span>🛟 Salva-vidas</span>
+				<span>👨‍🏫 Professor adicional</span>
+			</div>
+			<p class="sub center">Quer eternizar o momento? Fotógrafo e filmmaker podem ser adicionados. Salva-vidas é indicado para locais com piscina.</p>
+			<div class="center"><a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20conhecer%20melhor%20os%20servi%C3%A7os%20e%20atra%C3%A7%C3%B5es%20adicionais." data-cta="adicionais" class="btn btn-ghost">Consultar adicionais</a></div>
+		</div>
+	</section>
+
+	<section class="sec">
+		<div class="wrap">
+			<h2 class="center">Como funciona</h2>
+			<ol class="steps">
+				<li><b>1</b><h3>Escolha</h3><p>a experiência</p></li>
+				<li><b>2</b><h3>Consulte</h3><p>data e local no WhatsApp</p></li>
+				<li><b>3</b><h3>Entre em campo</h3><p>a gente conduz tudo</p></li>
+			</ol>
+		</div>
+	</section>
+
+	<section id="galeria" class="sec alt">
+		<div class="wrap">
+			<h2 class="center">Um campeonato para lembrar</h2>
+			<div class="gal">
+				<figure class="wide"><img src="assets/img/9-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 9" class="gallery-image" data-index="8"></figure>
+				<figure class="tall"><img src="assets/img/5-800.webp" width="533" height="800" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 5" class="gallery-image" data-index="4"></figure>
+				<figure class=""><img src="assets/img/8-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 8" class="gallery-image" data-index="7"></figure>
+				<figure class=""><img src="assets/img/2-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 2" class="gallery-image" data-index="1"></figure>
+				<figure class=""><img src="assets/img/1-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 1" class="gallery-image" data-index="0"></figure>
+				<figure class="tall"><img src="assets/img/4-800.webp" width="533" height="800" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 4" class="gallery-image" data-index="3"></figure>
+				<figure class=""><img src="assets/img/6-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 6" class="gallery-image" data-index="5"></figure>
+				<figure class=""><img src="assets/img/3-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 3" class="gallery-image" data-index="2"></figure>
+				<figure class=""><img src="assets/img/7-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 7" class="gallery-image" data-index="6"></figure>
 			</div>
 		</div>
 	</section>
 
-	<!-- 4. Adicionais -->
-	<section id="adicionais" class="py-16 md:py-20 px-4 bg-gradient-to-r from-[#FFFFFF] to-[#FFD600]">
-		<div class="container mx-auto max-w-5xl">
-			<h2 class="section-title text-center">Quer deixar a experiência ainda mais completa?</h2>
-			<div class="grid md:grid-cols-2 gap-6 mt-8">
-				<div class="card">
-					<h3 class="text-xl font-bold mb-4">🎉 Atrações</h3>
-					<ul class="space-y-3">
-						<li>🎨 Pintura de Rosto</li>
-						<li>💦 Guerra de Balões de Água <span class="incl">⭐ INCLUSO NO FINAL DE COPA</span></li>
-						<li>😂 Torta na Cara <span class="incl">⭐ INCLUSO NO FINAL DE COPA</span></li>
-						<li>🌈 Pintura de Cabelo com Spray Colorido <span class="incl">⭐ INCLUSO NO FINAL DE COPA</span></li>
-						<li>🎈 Balão Surpresa Gigante <span class="incl">⭐ INCLUSO NO FINAL DE COPA</span></li>
-					</ul>
-				</div>
-				<div class="card">
-					<h3 class="text-xl font-bold mb-4">👥 Profissionais e serviços</h3>
-					<ul class="space-y-3">
-						<li><strong>🛟 Salva-vidas</strong><br><span class="text-sm">Indicado especialmente para eventos realizados em locais com piscina ou atividades aquáticas.</span></li>
-						<li><strong>📸 Fotógrafo</strong><br><span class="text-sm">Registro profissional dos principais momentos da experiência.</span></li>
-						<li><strong>🎥 Filmmaker</strong><br><span class="text-sm">Captação em vídeo dos principais momentos da festa.</span></li>
-						<li><strong>👨‍🏫 Professor adicional</strong><br><span class="text-sm">Disponível quando houver necessidade de ampliar a equipe.</span></li>
-					</ul>
-				</div>
-			</div>
-			<p class="text-center text-lg font-semibold mt-8">📸 Quer eternizar ainda mais esse momento? Fotógrafo e filmmaker profissionais podem ser adicionados à experiência Gol Festa.</p>
-			<div class="text-center mt-6">
-				<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20conhecer%20melhor%20os%20servi%C3%A7os%20e%20atra%C3%A7%C3%B5es%20adicionais." data-cta="adicionais" class="btn-primary inline-block text-white font-bold py-3 px-8 rounded-full">📲 CONSULTAR ADICIONAIS</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- 5. Como funciona -->
-	<section id="como-funciona" class="py-16 md:py-20 px-6 bg-white">
-		<h2 class="section-title text-center">Como funciona a Gol Festa?</h2>
-		<ol class="steps max-w-5xl mx-auto mt-10">
-			<li><span>1</span><h3>Escolha a experiência</h3><p>Pontapé Inicial, Campeões da Festa ou Final de Copa.</p></li>
-			<li><span>2</span><h3>Consulte sua data</h3><p>Fale com a gente e informe a data e o local da comemoração.</p></li>
-			<li><span>3</span><h3>Conte sobre a festa</h3><p>Idade do aniversariante, quantidade aproximada de crianças e características do espaço.</p></li>
-			<li><span>4</span><h3>É hora de entrar em campo</h3><p>No grande dia, nossa equipe conduz toda a experiência e transforma o aniversário em evento.</p></li>
-		</ol>
-		<div class="text-center mt-10">
-			<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="consultar_data_como_funciona" class="btn-primary inline-block text-white font-bold py-3 px-8 rounded-full">📲 CONSULTAR MINHA DATA</a>
-		</div>
-	</section>
-
-	<!-- 6. Galeria -->
-	<section id="galeria" class="bg-[#f4f8f4] py-16 px-4 sm:px-6 lg:px-8">
-		<div class="max-w-7xl mx-auto">
-			<h2 class="section-title text-center">Um aniversário para viver. Um campeonato para lembrar.</h2>
-			<div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mt-8">
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/1-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 1" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="0"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/2-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 2" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="1"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/3-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 3" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="2"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/4-800.webp" width="533" height="800" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 4" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="3"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/5-800.webp" width="533" height="800" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 5" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="4"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/6-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 6" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="5"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/7-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 7" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="6"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/8-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 8" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="7"></div>
-				<div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/img/9-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Festa de futebol infantil Gol Festa em Brasília – foto 9" class="gallery-image w-full h-40 md:h-64 object-cover hover:scale-105 transition duration-300 ease-in-out cursor-zoom-in" data-index="8"></div>
-			</div>
-		</div>
-	</section>
-
-	<!-- 7. CTA final + formulário -->
-	<section id="contato" class="py-16 md:py-20 px-6 bg-white text-center">
-		<h2 class="section-title">A próxima Final de Copa pode ser a do seu filho. <span class="emo">🏆</span></h2>
-		<p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">Escolha a experiência que mais combina com ele e fale com nossa equipe.</p>
-		<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="consultar_data_final" class="btn-primary inline-block text-white font-bold py-4 px-10 rounded-full text-lg">📲 CONSULTAR MINHA DATA</a>
-		<p class="mt-4 text-sm font-semibold text-gray-600">3 horas de experiência • crianças a partir de 5 anos • profissionais de Educação Física</p>
-
-		<p class="mt-12 mb-4 font-semibold">Prefere deixar seus dados? A gente chama você no WhatsApp:</p>
-		<form id="lead-form" class="lead-form max-w-xl mx-auto text-left mb-6" novalidate data-sheet-url="">
-			<div class="grid sm:grid-cols-2 gap-4">
-				<label class="block sm:col-span-2"><span class="flabel">Seu nome</span>
-					<input name="nome" type="text" required autocomplete="name" class="finput"></label>
-				<label class="block sm:col-span-2"><span class="flabel">WhatsApp / telefone</span>
-					<input name="telefone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="(61) 90000-0000" class="finput"></label>
-				<label class="block sm:col-span-2"><span class="flabel">Experiência de interesse</span>
-					<select name="pacote" class="finput">
-						<option value="">Ainda não sei</option>
+	<section id="contato" class="final">
+		<img class="final-bg" src="assets/img/8-1600.webp" width="1600" height="1067" loading="lazy" alt="">
+		<div class="wrap final-in">
+			<h2>A próxima Final de Copa pode ser a do seu filho.</h2>
+			<a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="consultar_data_final" class="btn btn-gold btn-xl"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar minha data</a>
+			<p class="micro">3 horas • a partir de 5 anos • profissionais de Educação Física</p>
+			<details class="formbox">
+				<summary>Prefere que a gente chame você?</summary>
+				<form id="lead-form" class="lead-form" novalidate data-sheet-url="">
+					<input name="nome" type="text" required autocomplete="name" placeholder="Seu nome" aria-label="Seu nome" class="finput full">
+					<input name="telefone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="WhatsApp" aria-label="WhatsApp" class="finput full">
+					<select name="pacote" aria-label="Experiência de interesse" class="finput full">
+						<option value="">Experiência: ainda não sei</option>
 						<option>Pontapé Inicial</option>
 						<option>Campeões da Festa</option>
 						<option>Final de Copa</option>
-					</select></label>
-				<label class="block"><span class="flabel">Data da festa</span>
-					<input name="data" type="date" class="finput"></label>
-				<label class="block"><span class="flabel">Local / bairro</span>
-					<input name="bairro" type="text" class="finput"></label>
-				<label class="block"><span class="flabel">Idade do aniversariante</span>
-					<input name="idade" type="number" min="1" max="99" inputmode="numeric" class="finput"></label>
-				<label class="block"><span class="flabel">Qtd. aproximada de crianças</span>
-					<input name="criancas" type="number" min="1" max="500" inputmode="numeric" class="finput"></label>
-			</div>
-			<!-- honeypot anti-spam: invisível para pessoas -->
-			<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
-			<p class="form-error hidden text-sm text-red-600 mt-2" role="alert">Preencha seu nome e telefone para continuar.</p>
-			<button type="submit" class="btn-primary w-full text-white font-bold py-4 px-10 rounded-full mt-4">
-				<i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>ENVIAR E CONSULTAR MINHA DATA</button>
-		</form>
-		<a href="tel:+5561995503030" data-cta="ligar" class="inline-block mt-2 text-[#333333] font-semibold underline"><i class="fas fa-phone mr-2" aria-hidden="true"></i>Ou ligue: (61) 99550-3030</a>
+					</select>
+					<input name="data" type="date" aria-label="Data da festa" class="finput">
+					<input name="bairro" type="text" placeholder="Bairro" aria-label="Local / bairro" class="finput">
+					<input name="idade" type="number" min="1" max="99" inputmode="numeric" placeholder="Idade" aria-label="Idade do aniversariante" class="finput">
+					<input name="criancas" type="number" min="1" max="500" inputmode="numeric" placeholder="Nº crianças" aria-label="Quantidade aproximada de crianças" class="finput">
+					<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
+					<p class="form-error hidden full" role="alert">Preencha nome e WhatsApp.</p>
+					<button type="submit" class="btn btn-gold full">Enviar</button>
+				</form>
+			</details>
+		</div>
 	</section>
 	</main>
 
-	<!-- Lightbox -->
 	<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galeria de fotos">
 		<div class="lightbox-content">
 			<button class="lightbox-close" aria-label="Fechar">&times;</button>
@@ -370,19 +339,13 @@
 		</div>
 	</div>
 
-	<footer class="bg-[#333333] text-white py-12 pb-24 md:pb-12">
-		<div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
-			<div class="flex items-center gap-4 justify-center md:justify-start">
-				<img src="assets/img/logo-256.webp" width="64" height="64" loading="lazy" alt="Gol Festa" class="w-16 h-16">
-				<p class="font-semibold">Gol Festa<br><span class="text-gray-400 font-normal text-sm">Festa de futebol infantil</span></p>
-			</div>
-			<ul class="space-y-1 text-gray-300">
-				<li><i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>Brasília-DF e Região</li>
-				<li><a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_footer" class="hover:text-white"><i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>(61) 99550-3030</a></li>
-				<li><a href="https://www.instagram.com/gol.festa/" target="_blank" rel="noopener" class="hover:text-white"><i class="fab fa-instagram mr-2" aria-hidden="true"></i>@gol.festa</a></li>
-			</ul>
-			<!-- TODO: links de Política de Privacidade e Termos de Uso quando o texto for fornecido pelo cliente -->
-			<p class="text-gray-400 md:text-right">© <span id="year">2026</span> Gol Festa. Todos os direitos reservados.</p>
+	<footer class="foot">
+		<div class="wrap foot-in">
+			<img src="assets/img/logo-256.webp" width="48" height="48" loading="lazy" alt="Gol Festa">
+			<p>Brasília-DF e Região</p>
+			<p><a href="wpp-lead/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Gol%20Festa%20e%20gostaria%20de%20consultar%20uma%20data%20para%20o%20anivers%C3%A1rio." data-cta="whatsapp_footer"><i class="fab fa-whatsapp" aria-hidden="true"></i> (61) 99550-3030</a> · <a href="https://www.instagram.com/gol.festa/" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> @gol.festa</a> · <a href="tel:+5561995503030" data-cta="ligar">Ligar</a></p>
+			<!-- TODO: Política de Privacidade e Termos de Uso quando o cliente fornecer o texto -->
+			<p class="copy">© <span id="year">2026</span> Gol Festa</p>
 		</div>
 	</footer>
 

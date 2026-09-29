@@ -95,6 +95,12 @@
 		});
 	});
 
+	// Barra fixa do mobile aparece depois que a pessoa passa da primeira tela
+	const mbar = document.querySelector('.mbar');
+	function toggleBar() { mbar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6); }
+	window.addEventListener('scroll', toggleBar, { passive: true });
+	toggleBar();
+
 	// Ano automático no rodapé
 	document.getElementById('year').textContent = new Date().getFullYear();
 
